@@ -701,16 +701,12 @@ h1, h2, h3, h4, h5, h6 {
     }
     .mobile-toggle {
         display: inline-block;
-        vertical-align: middle;
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        margin-left: 5px;
+        position: absolute;
+        margin-left: 10px; /* Space between text and arrow */
+        margin-top: 12px; /* Increased to push arrow down to center */
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 1.3rem; /* slightly smaller arrow */
         cursor: pointer;
-        padding: 0 10px;
         color: #e5e7eb;
         line-height: 1;
     }
