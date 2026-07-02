@@ -623,6 +623,25 @@
                     navLinks.classList.toggle('active');
                 });
             }
+        
+            // Mobile Dropdown Toggle
+            const dropdowns = document.querySelectorAll('.nav-dropdown');
+            dropdowns.forEach(dropdown => {
+                const toggleBtn = dropdown.querySelector('.mobile-toggle');
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('open');
+                        if (dropdown.classList.contains('open')) {
+                            toggleBtn.textContent = '▲';
+                        } else {
+                            toggleBtn.textContent = '▼';
+                        }
+                    });
+                }
+            });
+
         });
     </script>
 </body>
