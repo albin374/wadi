@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design - Wadi Al Manar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .service-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(17,17,17,0.7), rgba(17,17,17,0.9));
+        }
+        .service-hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .service-hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .service-details {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        @media(min-width: 992px) {
+            .service-details {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+        .main-desc {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+        .features-list li {
+            padding: 1rem;
+            background: #f9f9f9;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #F97316;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+        }
+        .sidebar-card {
+            background: #111;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            position: sticky;
+            top: 100px;
+        }
+        .sidebar-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .sidebar-card p {
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+        .sidebar-card .btn-solid-accent {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar premium-nav solid-bg-nav">
+        <div class="logo">
+            <img src="media/WAM LOGO-02.png" alt="Wadi Al Manar Logo" height="70">
+        </div>
+        <nav class="nav-links">
+            <a href="index.html" >Home</a>
+            <a href="about.html">About</a>
+            <div class="nav-dropdown">
+                <a href="services.html">Services</a><span class="mobile-toggle">▼</span>
+                <div class="dropdown-content">
+                    <a href="civil.html">Civil</a>
+                    <a href="design.html">Design</a>
+                    <a href="fit-out-works.html">IT Solutions</a>
+                    <a href="renovations.html">Renovations</a>
+                    <a href="joinery-works.html">Joinery Works</a>
+                    <a href="painting-works.html">Painting Works</a>
+                    <a href="electrical-works.html">Electrical Works</a>
+                    <a href="ac-works.html">AC Installation & Services</a>
+                    <a href="flooring-works.html">Floor and wall tiling works</a>
+                    <a href="gypsum-works.html">Gypsum ceiling and partition works</a>
+                </div>
+            </div>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        <a href="contact.html" class="btn-magnetic btn-accent">Get Free Quote</a>
+    </header>
+
+    <!-- Tailwind Script for this specific page -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandOrange: '#F97316',
+            }
+          }
+        }
+      }
+    </script>
+    
+    
+<div class="font-['Outfit'] bg-[#f8f9fa] pb-10 overflow-hidden">
+    <!-- Hero Section -->
+    <div class="relative w-full overflow-hidden flex flex-col md:flex-row min-h-[700px] bg-white">
+        <!-- Left Text -->
+        <div class="w-full md:w-[45%] bg-white p-10 md:pl-20 lg:pl-24 py-16 md:py-32 z-10 flex flex-col justify-center relative">
+            <h1 class="text-6xl md:text-[5.5rem] font-black tracking-tight leading-none mb-4 text-[#F97316]">
+                DESIGN
+            </h1>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">From vision to reality.</h2>
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">We design exceptional environments that reflect your unique style, purpose, and aspirations.</p>
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">Our expertise spans from Design & Concept Development, Project Management and Turnkey Execution.</p>
+            <p class="text-gray-600 mb-10 text-sm leading-relaxed">With a focus on innovation, quality craftsmanship, and meticulous detail, we create spaces that are beautiful and practical delivered on time and within budget.</p>
+            
+            <div class="flex gap-4">
+                <a href="contact.html" class="px-8 py-3 bg-[#F97316] text-white font-semibold rounded shadow-lg hover:bg-[#ea580c] transition-colors">Start Your Project &rarr;</a>
+                <a href="projects.html" class="px-8 py-3 bg-white text-gray-900 font-semibold rounded border border-gray-300 hover:bg-gray-50 transition-colors">View Our Work</a>
+            </div>
+        </div>
+        
+        <!-- Right Image with Angle -->
+        <div class="w-full md:w-[65%] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-full relative h-[400px]">
+            <div class="absolute inset-0 bg-[#F97316] hidden md:block" style="clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%); z-index:1; right: -2px;"></div>
+            <div class="absolute inset-0 right-0 h-full overflow-hidden" style="clip-path: polygon(15.5% 0, 100% 0, 100% 100%, 0.5% 100%); z-index:2; margin-left: 10px;">
+                <img src="media/design_hero.png" class="w-full h-full object-cover" alt="Designer working">
+                
+                <!-- Floating Badges -->
+                <div class="absolute top-10 right-10 flex flex-col gap-4">
+                    <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-xl flex items-center gap-3">
+                        <div class="text-[#F97316]"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg></div>
+                        <span class="font-bold text-sm text-gray-800">Creative<br>Concepts</span>
+                    </div>
+                    <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-xl flex items-center gap-3">
+                        <div class="text-[#F97316]"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg></div>
+                        <span class="font-bold text-sm text-gray-800">Project<br>Management</span>
+                    </div>
+                    <div class="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-xl flex items-center gap-3">
+                        <div class="text-[#F97316]"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg></div>
+                        <span class="font-bold text-sm text-gray-800">Turnkey<br>Solutions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Process Cards -->
+    <div class="max-w-[1200px] mx-auto px-4 mt-12 relative z-30 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-white rounded-xl shadow-xl p-4 flex flex-col items-center text-center">
+                <img src="media/step_sketch_1782718307875.png" alt="Design & Concept" class="w-full h-40 object-cover rounded-lg mb-6">
+                <div class="w-12 h-12 bg-[#F97316] rounded-full flex items-center justify-center text-white -mt-12 mb-4 border-4 border-white shadow-md relative z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                </div>
+                <h4 class="font-bold text-gray-900 mb-2">Design & Concept<br>Development</h4>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl p-4 flex flex-col items-center text-center">
+                <img src="media/step_planning_1782718293991.png" alt="Interior Planning" class="w-full h-40 object-cover rounded-lg mb-6">
+                <div class="w-12 h-12 bg-[#F97316] rounded-full flex items-center justify-center text-white -mt-12 mb-4 border-4 border-white shadow-md relative z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                </div>
+                <h4 class="font-bold text-gray-900 mb-2">Interior<br>Planning</h4>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl p-4 flex flex-col items-center text-center">
+                <img src="media/step_working_1782718338871.png" alt="Project Management" class="w-full h-40 object-cover rounded-lg mb-6">
+                <div class="w-12 h-12 bg-[#F97316] rounded-full flex items-center justify-center text-white -mt-12 mb-4 border-4 border-white shadow-md relative z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                </div>
+                <h4 class="font-bold text-gray-900 mb-2">Project<br>Management</h4>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl p-4 flex flex-col items-center text-center">
+                <img src="media/luxury_penthouse.png" alt="Turnkey Execution" class="w-full h-40 object-cover rounded-lg mb-6">
+                <div class="w-12 h-12 bg-[#F97316] rounded-full flex items-center justify-center text-white -mt-12 mb-4 border-4 border-white shadow-md relative z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
+                </div>
+                <h4 class="font-bold text-gray-900 mb-2">Turnkey<br>Execution</h4>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Designed for Excellence Section -->
+    <div class="max-w-[1200px] mx-auto px-4 mb-20 bg-white rounded-2xl shadow-lg p-6">
+        <div class="flex flex-col md:flex-row gap-10">
+            <div class="w-full md:w-[65%]">
+                <img src="media/Modern corporate lobby with city view.png" alt="Excellence" class="w-full h-[400px] object-cover rounded-xl shadow">
+            </div>
+            <div class="w-full md:w-[35%] flex flex-col justify-center py-4 pr-6">
+                <h2 class="text-4xl font-bold text-gray-900 mb-2">Designed for</h2>
+                <h2 class="text-4xl font-bold text-[#F97316] mb-8">Excellence</h2>
+                <div class="w-16 h-[2px] bg-gray-200 mb-8"></div>
+                <p class="text-gray-600 leading-relaxed text-lg mb-10">Beautiful spaces created with innovation, precision, and functionality.</p>
+                <div class="flex gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#F97316] opacity-20"></span>
+                    <span class="w-2 h-2 rounded-full bg-[#F97316] opacity-40"></span>
+                    <span class="w-2 h-2 rounded-full bg-[#F97316] opacity-60"></span>
+                    <span class="w-2 h-2 rounded-full bg-[#F97316] opacity-80"></span>
+                    <span class="w-2 h-2 rounded-full bg-[#F97316]"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Categories Grid -->
+    <div class="max-w-[1200px] mx-auto px-4 mb-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+            <div class="relative h-48 rounded-xl overflow-hidden group shadow-md">
+                <img src="media/Contemporary luxury villa with waterfront views.png" alt="Luxury Residential" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                    <div class="w-10 h-10 border border-[#F97316] rounded-full flex items-center justify-center text-[#F97316] mb-2 bg-black/20 backdrop-blur-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
+                    <h4 class="text-white font-bold leading-tight">Luxury<br>Residential</h4>
+                </div>
+            </div>
+            <div class="relative h-48 rounded-xl overflow-hidden group shadow-md">
+                <img src="media/desgin2.png" alt="Corporate Offices" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                    <div class="w-10 h-10 border border-[#F97316] rounded-full flex items-center justify-center text-[#F97316] mb-2 bg-black/20 backdrop-blur-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h4 class="text-white font-bold leading-tight">Corporate<br>Offices</h4>
+                </div>
+            </div>
+            <div class="relative h-48 rounded-xl overflow-hidden group shadow-md">
+                <img src="media/desgin1.png" alt="Commercial Interiors" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                    <div class="w-10 h-10 border border-[#F97316] rounded-full flex items-center justify-center text-[#F97316] mb-2 bg-black/20 backdrop-blur-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    </div>
+                    <h4 class="text-white font-bold leading-tight">Commercial<br>Interiors</h4>
+                </div>
+            </div>
+            <div class="relative h-48 rounded-xl overflow-hidden group shadow-md">
+                <img src="media/Modern fine-dining with city views.png" alt="Hospitality Spaces" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                    <div class="w-10 h-10 border border-[#F97316] rounded-full flex items-center justify-center text-[#F97316] mb-2 bg-black/20 backdrop-blur-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    </div>
+                    <h4 class="text-white font-bold leading-tight">Hospitality<br>Spaces</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Materials Strip -->
+    <div class="max-w-[1200px] mx-auto px-4 mb-6">
+        <div class="flex gap-2 h-24">
+            <div class="flex-1 rounded-lg overflow-hidden shadow-sm"><img src="media/gyp_gal1.png" class="w-full h-full object-cover"></div>
+            <div class="flex-1 rounded-lg overflow-hidden shadow-sm"><img src="media/gyp_gal2.png" class="w-full h-full object-cover"></div>
+            <div class="flex-1 rounded-lg overflow-hidden shadow-sm"><img src="media/gyp_gal3.png" class="w-full h-full object-cover"></div>
+            <div class="flex-1 rounded-lg overflow-hidden shadow-sm"><img src="media/paint_interior.png" class="w-full h-full object-cover"></div>
+            <div class="flex-1 rounded-lg overflow-hidden shadow-sm"><img src="media/tile_hero.png" class="w-full h-full object-cover"></div>
+            <div class="flex-1 rounded-lg overflow-hidden shadow-sm"><img src="media/tile_res.png" class="w-full h-full object-cover"></div>
+        </div>
+    </div>
+    
+    <!-- Dark Features Banner -->
+    <div class="max-w-[1200px] mx-auto px-4 mb-16">
+        <div class="bg-[#F97316] rounded-xl p-8 grid grid-cols-1 md:grid-cols-4 gap-6 text-white shadow-xl">
+            <div class="flex items-start gap-4">
+                <svg class="w-8 h-8 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                <div>
+                    <h5 class="font-bold text-sm mb-1">Innovation</h5>
+                    <p class="text-white/90 text-xs">Creative solutions for modern living.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4">
+                <svg class="w-8 h-8 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+                <div>
+                    <h5 class="font-bold text-sm mb-1">Craftsmanship</h5>
+                    <p class="text-white/90 text-xs">Quality craftsmanship in every detail.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4">
+                <svg class="w-8 h-8 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
+                <div>
+                    <h5 class="font-bold text-sm mb-1">Functionality</h5>
+                    <p class="text-white/90 text-xs">Spaces that are practical, comfortable & efficient.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4">
+                <svg class="w-8 h-8 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"></circle><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"></path></svg>
+                <div>
+                    <h5 class="font-bold text-sm mb-1">On-Time Delivery</h5>
+                    <p class="text-white/90 text-xs">Delivered on time, every time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CTA Section -->
+    <div class="max-w-[1200px] mx-auto px-4">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row mb-10">
+            <div class="w-full md:w-1/2 p-12 flex flex-col justify-center">
+                <h3 class="text-3xl font-bold text-gray-900 mb-2">Let's Build</h3>
+                <h3 class="text-3xl font-bold text-[#F97316] mb-8">Something Exceptional.</h3>
+                <a href="contact.html" class="px-6 py-3 bg-[#F97316] text-white font-semibold rounded w-fit hover:bg-[#ea580c] transition-colors shadow">Request Consultation &rarr;</a>
+            </div>
+            <div class="w-full md:w-1/2 h-64 md:h-auto">
+                <img src="media/desgin.png" alt="Consultation" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Premium Super Footer -->
+    <footer class="footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="f-brand">
+                    <img src="media/WAM LOGO-02.png" alt="Wadi Al Manar Logo" class="f-logo" style="height: 70px;">
+                    <p>Engineering Better Spaces with Precision & Excellence. Premium technical services in Dubai.</p>
+                </div>
+                <div class="f-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="f-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="painting-works.html">Painting Works</a></li>
+                        <li><a href="electrical-works.html">Electrical Works</a></li>
+                        <li><a href="fit-out-works.html">IT Solutions</a></li>
+                        <li><a href="renovations.html">Renovations</a></li>
+                        <li><a href="services.html" style="color: #F97316; font-weight: 600;">More Services &rarr;</a></li>
+                    </ul>
+                </div>
+                <div class="f-newsletter">
+                    <h4 style="color: white; margin-bottom: 1.5rem; font-size: 1.2rem;">Contact Us</h4>
+                    <div class="f-contact-info" style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                        <p style="margin-bottom: 0.5rem;">📍 Bur Dubai - Al Fahidi - Dubai</p>
+                        <p style="margin-bottom: 0.5rem;">📞 +971 52 795 0408</p>
+                        <p style="margin-bottom: 0.5rem;">📞 +971 56 424 4083</p>
+                        <p>✉️ info@wadialmanar.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wadi Al Manar Technical Services LLC. All rights reserved.</p>
+                <div class="social-links" style="display: flex; gap: 1rem; align-items: center;">
+                    <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.392-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.18 7.773 21.692 5.25 22 4.009z"></path></svg></a>
+                    <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Sticky Navbar
+        const navbar = document.querySelector('.premium-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
