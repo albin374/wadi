@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC Installation & Services - Wadi Al Manar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .service-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(17,17,17,0.7), rgba(17,17,17,0.9));
+        }
+        .service-hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .service-hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .service-details {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        @media(min-width: 992px) {
+            .service-details {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+        .main-desc {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+        .features-list li {
+            padding: 1rem;
+            background: #f9f9f9;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #F97316;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+        }
+        .sidebar-card {
+            background: #111;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            position: sticky;
+            top: 100px;
+        }
+        .sidebar-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .sidebar-card p {
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+        .sidebar-card .btn-solid-accent {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar premium-nav solid-bg-nav">
+        <div class="logo">
+            <img src="media/WAM LOGO-02.png" alt="Wadi Al Manar Logo" height="70">
+        </div>
+        <nav class="nav-links">
+            <a href="index.html" >Home</a>
+            <a href="about.html">About</a>
+            <div class="nav-dropdown">
+                <a href="services.html">Services</a>
+                <div class="dropdown-content">
+                    <a href="painting-works.html">Painting Works</a>
+                    <a href="electrical-works.html">Electrical Works</a>
+                    <a href="civil.html">Civil</a>
+                    <a href="fit-out-works.html">IT Solutions</a>
+                    <a href="joinery-works.html">Joinery Works</a>
+                    <a href="flooring-works.html">Floor and wall tiling works</a>
+                    <a href="ac-works.html">AC Installation & Services</a>
+                    <a href="gypsum-works.html">Gypsum ceiling and partition works</a>
+                    <a href="renovations.html">Renovations</a>
+                </div>
+            </div>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        <a href="contact.html" class="btn-magnetic btn-accent">Get Free Quote</a>
+    </header>
+    <!-- Tailwind Script for this specific page -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandOrange: '#F97316',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <div class="max-w-[1200px] mx-auto pt-32 pb-16 px-4 md:px-8 font-['Outfit']">
+        
+        <!-- TOP SECTION: Hero -->
+        <div class="flex flex-col md:flex-row items-center gap-12 mb-16">
+            <!-- Left Side Text -->
+            <div class="w-full md:w-1/2">
+                <div class="w-16 h-1 bg-brandOrange mb-6"></div>
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 text-[#111]">
+                    <span class="text-brandOrange">AC</span><br>
+                    Installation &<br>
+                    Services
+                </h1>
+                <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                    Comfort, engineered. Our AC solutions combine advanced HVAC technology, precision installation, and proactive maintenance for:
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full border-2 border-brandOrange flex items-center justify-center text-brandOrange font-bold text-sm">✓</div>
+                        <span class="font-medium text-gray-800">Reliable performance</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full border-2 border-brandOrange flex items-center justify-center text-brandOrange font-bold text-sm">✓</div>
+                        <span class="font-medium text-gray-800">Enhanced energy efficiency</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full border-2 border-brandOrange flex items-center justify-center text-brandOrange font-bold text-sm">✓</div>
+                        <span class="font-medium text-gray-800">Superior indoor air quality</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Right Side Image & Cards -->
+            <div class="w-full md:w-1/2 relative">
+                <div class="relative rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl h-[500px]">
+                    <img src="media/ac_hero_tech.png" alt="AC Installation" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Floating Cards -->
+                <div class="absolute top-12 -right-8 md:-right-12 space-y-4 z-10 hidden sm:block">
+                    <div class="bg-white rounded-xl shadow-lg p-4 flex items-center gap-4 w-64 transform hover:scale-105 transition">
+                        <svg class="w-8 h-8 text-brandOrange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <span class="font-bold text-sm text-gray-800">Reliable<br>Performance</span>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-4 flex items-center gap-4 w-64 transform hover:scale-105 transition">
+                        <svg class="w-8 h-8 text-brandOrange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <span class="font-bold text-sm text-gray-800">Enhanced<br>Energy Efficiency</span>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-4 flex items-center gap-4 w-64 transform hover:scale-105 transition">
+                        <svg class="w-8 h-8 text-brandOrange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        <span class="font-bold text-sm text-gray-800">Superior Indoor<br>Air Quality</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MIDDLE SECTION: Gallery -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-16">
+            <img src="media/ac_bottom_living.png" alt="Residential AC" class="w-full h-48 md:h-64 object-cover">
+            <img src="media/premium_ac_hvac.png" alt="Commercial HVAC" class="w-full h-48 md:h-64 object-cover">
+            <img src="media/ac_gallery_3.png" alt="Industrial Ductwork" class="w-full h-48 md:h-64 object-cover">
+        </div>
+        
+        <!-- BOTTOM SECTION: Services & Right Image -->
+        <div class="flex flex-col md:flex-row items-start gap-12 md:gap-20">
+            <!-- Left Side Services -->
+            <div class="flex-1 w-full">
+                <div class="w-12 h-1 bg-brandOrange mb-4"></div>
+                <h2 class="text-3xl font-bold text-brandOrange mb-8">Services:</h2>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-8 bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition">
+                        <div class="bg-brandOrange p-3 rounded-lg text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        </div>
+                        <span class="font-bold text-gray-800">New installations</span>
+                    </div>
+                    <div class="flex items-center gap-8 bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition">
+                        <div class="bg-brandOrange p-3 rounded-lg text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <span class="font-bold text-gray-800">System upgrades</span>
+                    </div>
+                    <div class="flex items-center gap-8 bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition">
+                        <div class="bg-brandOrange p-3 rounded-lg text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        </div>
+                        <span class="font-bold text-gray-800">Optimization</span>
+                    </div>
+                    <div class="flex items-center gap-8 bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition">
+                        <div class="bg-brandOrange p-3 rounded-lg text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <span class="font-bold text-gray-800">Refurbishment</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side Image & Quote -->
+            <div class="flex-1 w-full">
+                <img src="media/ac_bottom_living.png" alt="Living Room AC" class="w-full h-auto md:h-[500px] object-cover rounded-3xl shadow-xl mb-6">
+                <div class="border-l-4 border-brandOrange pl-4">
+                    <p class="text-gray-700 font-medium text-lg leading-relaxed max-w-sm">Tailored for both residential and commercial spaces.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<!-- Premium Super Footer -->
+    <footer class="footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="f-brand">
+                    <img src="media/WAM LOGO-02.png" alt="Wadi Al Manar Logo" class="f-logo" style="height: 70px;">
+                    <p>Engineering Better Spaces with Precision & Excellence. Premium technical services in Dubai.</p>
+                </div>
+                <div class="f-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="f-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="painting-works.html">Painting Works</a></li>
+                        <li><a href="electrical-works.html">Electrical Works</a></li>
+                        <li><a href="fit-out-works.html">IT Solutions</a></li>
+                        <li><a href="renovations.html">Renovations</a></li>
+                    </ul>
+                </div>
+                <div class="f-newsletter">
+                    <h4 style="color: #F97316; margin-bottom: 1.5rem; font-size: 1.2rem;">Newsletter</h4>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Subscribe to get the latest news and updates.</p>
+                    <form style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <input type="email" placeholder="Your Email" style="padding: 0.8rem; flex: 1; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; border-radius: 4px;">
+                        <button type="button" style="background: #F97316; color: white; border: none; padding: 0 1.5rem; border-radius: 4px; cursor: pointer; font-weight: 600;">Subscribe</button>
+                    </form>
+                    <div class="f-contact-info" style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                        <p style="margin-bottom: 0.5rem;">📍 Bur Dubai - Al Fahidi - Dubai</p>
+                        <p style="margin-bottom: 0.5rem;">📞 +971 52 795 0408</p>
+                        <p>✉️ info@wadialmanar.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wadi Al Manar Technical Services LLC. All rights reserved.</p>
+                <div class="social-links" style="display: flex; gap: 1rem; align-items: center;">
+                    <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.392-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.18 7.773 21.692 5.25 22 4.009z"></path></svg></a>
+                    <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Sticky Navbar
+        const navbar = document.querySelector('.premium-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

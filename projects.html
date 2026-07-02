@@ -127,7 +127,7 @@
 <!-- Top Navigation -->
 <nav id="main-nav" class="absolute top-0 left-0 w-full z-50 bg-transparent flex justify-between items-center px-[5%] py-4 max-w-full mx-auto flex-wrap transition-all duration-300">
 <div class="logo">
-    <img src="media/logo2 (2).png" alt="Wadi Al Manar Logo" class="h-[90px] w-auto">
+    <img id="nav-logo" src="media/WAM LOGO-02.png" alt="Wadi Al Manar Logo" class="h-[90px] w-auto transition-all duration-300">
 </div>
 <button id="mobile-menu-btn" class="md:hidden text-white ml-auto mr-4 flex flex-col gap-[6px] z-[1001] cursor-pointer bg-transparent border-none">
     <span class="block w-[30px] h-[3px] bg-white transition-all duration-300"></span>
@@ -137,7 +137,20 @@
 <div id="mobile-menu" class="hidden md:flex gap-8 items-center w-full md:w-auto mt-4 md:mt-0 flex-col md:flex-row bg-[#111] md:bg-transparent p-6 md:p-0 absolute md:static top-full left-0 transition-all duration-300">
 <a class="text-[#e5e7eb] font-semibold text-[0.9rem] hover:text-[#F97316] transition-colors" href="index.html">Home</a>
 <a class="text-[#e5e7eb] font-semibold text-[0.9rem] hover:text-[#F97316] transition-colors" href="about.html">About</a>
-<a class="text-[#e5e7eb] font-semibold text-[0.9rem] hover:text-[#F97316] transition-colors" href="services.html">Services</a>
+<div class="relative group">
+    <a class="text-[#e5e7eb] font-semibold text-[0.9rem] hover:text-[#F97316] transition-colors cursor-pointer" href="services.html">Services</a>
+    <div class="absolute hidden group-hover:block top-full left-0 mt-2 bg-[#111111]/95 backdrop-blur-md min-w-[240px] shadow-lg rounded-lg overflow-hidden border border-white/5 z-50">
+        <a class="block px-5 py-3 text-[#e5e7eb] text-[0.9rem] font-medium hover:bg-[#F97316]/10 hover:text-[#F97316] hover:pl-6 transition-all" href="painting-works.html">Painting Works</a>
+        <a class="block px-5 py-3 text-[#e5e7eb] text-[0.9rem] font-medium hover:bg-[#F97316]/10 hover:text-[#F97316] hover:pl-6 transition-all" href="electrical-works.html">Electrical Works</a>
+        <a class="block px-5 py-3 text-[#e5e7eb] text-[0.9rem] font-medium hover:bg-[#F97316]/10 hover:text-[#F97316] hover:pl-6 transition-all" href="civil.html">Civil</a>
+        <a class="block px-5 py-3 text-[#e5e7eb] text-[0.9rem] font-medium hover:bg-[#F97316]/10 hover:text-[#F97316] hover:pl-6 transition-all" href="fit-out-works.html">IT Solutions</a>
+        <a class="block px-5 py-3 text-[#e5e7eb] text-[0.9rem] font-medium hover:bg-[#F97316]/10 hover:text-[#F97316] hover:pl-6 transition-all" href="joinery-works.html">Joinery Works</a>
+        <a class="block px-5 py-3 text-[#e5e7eb] text-[0.9rem] font-medium hover:bg-[#F97316]/10 hover:text-[#F97316] hover:pl-6 transition-all" href="flooring-works.html">Floor and wall tiling works</a>
+        <a class="block px-5 py-3 text-[#e5e7eb] text-[0.9rem] font-medium hover:bg-[#F97316]/10 hover:text-[#F97316] hover:pl-6 transition-all" href="ac-works.html">AC Installation & Services</a>
+        <a class="block px-5 py-3 text-[#e5e7eb] text-[0.9rem] font-medium hover:bg-[#F97316]/10 hover:text-[#F97316] hover:pl-6 transition-all" href="gypsum-works.html">Gypsum ceiling and partition works</a>
+        <a class="block px-5 py-3 text-[#e5e7eb] text-[0.9rem] font-medium hover:bg-[#F97316]/10 hover:text-[#F97316] hover:pl-6 transition-all" href="renovations.html">Renovations</a>
+    </div>
+</div>
 <a class="text-[#F97316] font-semibold text-[0.9rem] relative" href="projects.html">Projects</a>
 <a class="text-[#e5e7eb] font-semibold text-[0.9rem] hover:text-[#F97316] transition-colors" href="contact.html">Contact</a>
 </div>
@@ -147,15 +160,17 @@
     document.addEventListener('DOMContentLoaded', () => {
         const nav = document.getElementById('main-nav');
         const hero = document.querySelector('section');
-        
+        const logo = document.getElementById('nav-logo');
         if (nav && hero) {
             window.addEventListener('scroll', () => {
                 if (window.scrollY > hero.offsetHeight - 50) {
-                    nav.classList.remove('absolute', 'bg-transparent');
-                    nav.classList.add('fixed', 'bg-[#111111]/95', 'backdrop-blur-md', 'shadow-lg');
+                    nav.classList.remove('absolute', 'bg-transparent', 'py-4');
+                    nav.classList.add('fixed', 'bg-[#111111]/95', 'backdrop-blur-md', 'shadow-lg', 'py-2');
+                    if (logo) logo.classList.replace('h-[90px]', 'h-[55px]');
                 } else {
-                    nav.classList.add('absolute', 'bg-transparent');
-                    nav.classList.remove('fixed', 'bg-[#111111]/95', 'backdrop-blur-md', 'shadow-lg');
+                    nav.classList.add('absolute', 'bg-transparent', 'py-4');
+                    nav.classList.remove('fixed', 'bg-[#111111]/95', 'backdrop-blur-md', 'shadow-lg', 'py-2');
+                    if (logo) logo.classList.replace('h-[55px]', 'h-[90px]');
                 }
             });
         }
@@ -487,7 +502,7 @@ void main() {
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="relative aspect-[16/9] rounded-3xl overflow-hidden group">
 <!-- After Image (Bottom) -->
-<img class="absolute inset-0 w-full h-full object-cover" data-alt="A modern, high-end corporate office after a complete ARCHITECH renovation. Features include glass partitions, ergonomic wooden desks, recessed LED linear lighting, and a minimalist gray carpet. The space feels open, professional, and sophisticated. Bright, clean lighting throughout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCosGIRNt5U8jBrASNxWqjXDgq9z600EZjXh_q4_gkdBO8MPpIheC8bmCH6vWBoc-QQqJf17Ncss7grQSzaUquZRj__-ObjN3BtlXT6SeoLaRB-fCcOOYNlHLItExUlGdT7kbwM27j1sWbR4jlPObzUv8FAvBkVe2mlMpY5qouqIjnTpZAiY2_XLcCuAF1lCyckgv0JdMAkjBNXZVxaRrH50CfrFHQViOvdP7ODDL-bVMAQJnKJKD-f_sUUQFNOPvpRJ7VA6ErGMBQ"/>
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A modern, high-end corporate office after a complete Wadi Al Manar renovation. Features include glass partitions, ergonomic wooden desks, recessed LED linear lighting, and a minimalist gray carpet. The space feels open, professional, and sophisticated. Bright, clean lighting throughout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCosGIRNt5U8jBrASNxWqjXDgq9z600EZjXh_q4_gkdBO8MPpIheC8bmCH6vWBoc-QQqJf17Ncss7grQSzaUquZRj__-ObjN3BtlXT6SeoLaRB-fCcOOYNlHLItExUlGdT7kbwM27j1sWbR4jlPObzUv8FAvBkVe2mlMpY5qouqIjnTpZAiY2_XLcCuAF1lCyckgv0JdMAkjBNXZVxaRrH50CfrFHQViOvdP7ODDL-bVMAQJnKJKD-f_sUUQFNOPvpRJ7VA6ErGMBQ"/>
 <!-- Before Image (Top with clip-path) -->
 <div class="absolute inset-0 w-full h-full overflow-hidden" id="before-container" style="clip-path: inset(0 50% 0 0);">
 <img class="absolute inset-0 w-full h-full object-cover" data-alt="An outdated, cluttered office space before renovation. Visible are yellowed lighting, mismatched furniture, old ceiling tiles, and messy cable management. The atmosphere is cramped and dim, contrasting sharply with a modern renovation. Shot from the same angle as the 'After' image." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIsezJBEc4IfOO6J86ikccLz88nDs3hPvLt5Ys_1vQrkPeUzq1zrK70meftx-QFnJt_9vAYy3p5tIuZ8GKveqepn6Cj1lzGGaRlp_LGCPKrADqFWVghuBinuY9RX3h9aNaZ3ENVCSkZw0Gm0dyf2i-wk4HAGTQV4k7RmDFE4HmtyhrH-yJXmKcVVFyFr2cB2TtzxDmEQoJkAGmuv3X9-YA4GfG0P3_tb-Srrw2I5SxXFMpxjEazPcwlPlJWy52z_Lyzjid6FtN2HA"/>
@@ -500,7 +515,7 @@ void main() {
 </div>
 <input class="absolute inset-0 w-full h-full opacity-0 cursor-col-resize z-40 before-after-slider" id="comparison-slider" max="100" min="0" type="range" value="50"/>
 <div class="absolute bottom-6 left-6 z-20 bg-black/50 backdrop-blur-md px-4 py-2 rounded-lg font-label-caps text-xs">BEFORE</div>
-<div class="absolute bottom-6 right-6 z-20 bg-primary-container/80 backdrop-blur-md px-4 py-2 rounded-lg font-label-caps text-xs text-on-primary-container">AFTER ARCHITECH</div>
+<div class="absolute bottom-6 right-6 z-20 bg-primary-container/80 backdrop-blur-md px-4 py-2 rounded-lg font-label-caps text-xs text-on-primary-container">AFTER WADI AL MANAR</div>
 </div>
 </div>
 </section>
@@ -509,7 +524,7 @@ void main() {
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-12 gap-16 items-center">
 <div class="md:col-span-4">
 <h2 class="font-display-lg text-headline-lg mb-8">Widespread Precision</h2>
-<p class="font-body-lg text-secondary mb-10">Strategically serving the Emirates from our core hubs. Wherever your project stands, ARCHITECH delivers excellence.</p>
+<p class="font-body-lg text-secondary mb-10">Strategically serving the Emirates from our core hubs. Wherever your project stands, Wadi Al Manar delivers excellence.</p>
 <div class="space-y-6">
 <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors group cursor-pointer border-l-2 border-transparent hover:border-primary">
 <span class="material-symbols-outlined text-primary mt-1">location_on</span>
@@ -527,14 +542,8 @@ void main() {
 </div>
 </div>
 </div>
-<div class="md:col-span-8 bg-surface-container-low rounded-3xl p-12 flex items-center justify-center min-h-[500px] border border-outline-variant/20 relative">
-<!-- SVG UAE MAP Placeholder -->
-<div class="w-full h-full opacity-40 bg-contain bg-center bg-no-repeat" data-location="United Arab Emirates" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDZasjjzwamWlkwn2zgimMLIFR0nbzniUl4f79y0QuUd0XlOih-7qRlvhWkiRQPHyWc5AxQ78WYpQ_k0ErSC3o8qkbOJX7MBK9KiuEH2HaGi5Ms6Y0pwhFXQnuNKx-kJtlULsq0SU2iDyC20L-IMZ04pyy6RJm1Jm0yr5RNBqQxSiifBM5xBlYjBDMLjaYuz-61XRcXUT9G1C5nP5tIV0-1EpSjq1ToevDOg5pAbQ42YUQvqdHmzbsa5oGgDh0U_uOUYapfieWbdo')"></div>
-<!-- Animated Pins -->
-<div class="absolute top-1/3 left-1/2 w-3 h-3 bg-primary rounded-full animate-ping"></div>
-<div class="absolute top-1/3 left-1/2 w-3 h-3 bg-primary rounded-full"></div>
-<div class="absolute top-1/2 right-1/4 w-3 h-3 bg-primary rounded-full animate-ping delay-75"></div>
-<div class="absolute top-1/2 right-1/4 w-3 h-3 bg-primary rounded-full"></div>
+<div class="md:col-span-8 bg-surface-container-low rounded-3xl flex items-center justify-center min-h-[500px] border border-outline-variant/20 relative overflow-hidden">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14436.565860773955!2d55.28929944696123!3d25.263884817454845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43399436c841%3A0x524e93d5de41f22!2sAl%20Fahidi%20-%20Dubai!5e0!3m2!1sen!2sae!4v1717320000000!5m2!1sen!2sae" class="absolute inset-0 w-full h-full" style="border:0; filter: grayscale(20%) contrast(1.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 </div>
 </section>
@@ -596,7 +605,7 @@ void main() {
 </div>
 </div>
 <div class="mt-auto aspect-video rounded-xl overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="A time-lapse inspired wide shot of a luxury retail boutique in a Dubai mall. The lighting highlights the exquisite ceiling work and perfectly aligned shelving. The space is pristine, ready for customers, reflecting the high-speed, high-quality execution of ARCHITECH." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoeXceRT3BHRfKFDLT4g0wHbFFCn-oUQ1f5gTY2eEpiVqg5EHeGUNJAYh8aL2gkonFu2uOLwn23wteANuF82gWaPYP0Of4UDqO6lgtR24ecJl7ebjcd_2flHiK3QV9uIAY_cZMIonuuEtQtMrOtxLLCH8GDT3FedthSYU_Mqpo895nkPqGVbwPG9FeWiNhv0M7fsbXX96SZ5u6bygKQIeqHihgtu5q7u7p_JTvE3ZT8ZdP4KywadbucrVGgowINZ_LtNu_Oyqngr8"/>
+<img class="w-full h-full object-cover" data-alt="A time-lapse inspired wide shot of a luxury retail boutique in a Dubai mall. The lighting highlights the exquisite ceiling work and perfectly aligned shelving. The space is pristine, ready for customers, reflecting the high-speed, high-quality execution of Wadi Al Manar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoeXceRT3BHRfKFDLT4g0wHbFFCn-oUQ1f5gTY2eEpiVqg5EHeGUNJAYh8aL2gkonFu2uOLwn23wteANuF82gWaPYP0Of4UDqO6lgtR24ecJl7ebjcd_2flHiK3QV9uIAY_cZMIonuuEtQtMrOtxLLCH8GDT3FedthSYU_Mqpo895nkPqGVbwPG9FeWiNhv0M7fsbXX96SZ5u6bygKQIeqHihgtu5q7u7p_JTvE3ZT8ZdP4KywadbucrVGgowINZ_LtNu_Oyqngr8"/>
 </div>
 </div>
 </div>
@@ -633,7 +642,7 @@ void main() {
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row gap-20 items-center">
 <div class="w-full md:w-1/3">
 <h2 class="font-display-lg text-headline-lg mb-6">Built on Trust</h2>
-<p class="text-secondary font-body-md">What our partners say about the ARCHITECH technical edge.</p>
+<p class="text-secondary font-body-md">What our partners say about the Wadi Al Manar technical edge.</p>
 <div class="flex gap-4 mt-8">
 <button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">west</span></button>
 <button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">east</span></button>
@@ -665,7 +674,7 @@ void main() {
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 </div>
-<p class="font-body-md italic mb-8">"On-time delivery even under extreme pressure. Architech is our go-to for complex retail fit-outs."</p>
+<p class="font-body-md italic mb-8">"On-time delivery even under extreme pressure. Wadi Al Manar is our go-to for complex retail fit-outs."</p>
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 rounded-full bg-surface-container-highest"></div>
 <div>
@@ -680,7 +689,7 @@ void main() {
 <!-- Process Section -->
 <section class="py-section-gap bg-inverse-surface text-white">
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
-<h2 class="font-display-lg text-headline-lg text-center mb-20">The Architech Protocol</h2>
+<h2 class="font-display-lg text-headline-lg text-center mb-20">The Wadi Al Manar Protocol</h2>
 <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
 <!-- Line -->
 <div class="hidden md:block absolute top-10 left-10 right-10 h-[1px] bg-white/10 z-0"></div>
@@ -779,7 +788,7 @@ void main() {
         <div class="container">
             <div class="footer-grid">
                 <div class="f-brand">
-                    <img src="media/logo2 (2).png" alt="Wadi Al Manar Logo" class="f-logo" style="height: 70px;">
+                    <img src="media/WAM LOGO-02.png" alt="Wadi Al Manar Logo" class="f-logo" style="height: 70px;">
                     <p>Engineering Better Spaces with Precision & Excellence. Premium technical services in Dubai.</p>
                 </div>
                 <div class="f-links">
@@ -794,10 +803,10 @@ void main() {
                 <div class="f-links">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Fit Out Works</a></li>
-                        <li><a href="#">MEP Services</a></li>
-                        <li><a href="#">General Maintenance</a></li>
-                        <li><a href="#">Civil Works</a></li>
+                        <li><a href="painting-works.html">Painting Works</a></li>
+                        <li><a href="electrical-works.html">Electrical Works</a></li>
+                        <li><a href="fit-out-works.html">IT Solutions</a></li>
+                        <li><a href="renovations.html">Renovations</a></li>
                     </ul>
                 </div>
                 <div class="f-newsletter">

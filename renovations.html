@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renovations - Wadi Al Manar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .service-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(17,17,17,0.7), rgba(17,17,17,0.9));
+        }
+        .service-hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .service-hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .service-details {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        @media(min-width: 992px) {
+            .service-details {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+        .main-desc {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+        .features-list li {
+            padding: 1rem;
+            background: #f9f9f9;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #F97316;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+        }
+        .sidebar-card {
+            background: #111;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            position: sticky;
+            top: 100px;
+        }
+        .sidebar-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .sidebar-card p {
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+        .sidebar-card .btn-solid-accent {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar premium-nav solid-bg-nav">
+        <div class="logo">
+            <img src="media/WAM LOGO-02.png" alt="Wadi Al Manar Logo" height="70">
+        </div>
+        <nav class="nav-links">
+            <a href="index.html" >Home</a>
+            <a href="about.html">About</a>
+            <div class="nav-dropdown">
+                <a href="services.html">Services</a>
+                <div class="dropdown-content">
+                    <a href="painting-works.html">Painting Works</a>
+                    <a href="electrical-works.html">Electrical Works</a>
+                    <a href="civil.html">Civil</a>
+                    <a href="fit-out-works.html">IT Solutions</a>
+                    <a href="joinery-works.html">Joinery Works</a>
+                    <a href="flooring-works.html">Floor and wall tiling works</a>
+                    <a href="ac-works.html">AC Installation & Services</a>
+                    <a href="gypsum-works.html">Gypsum ceiling and partition works</a>
+                    <a href="renovations.html">Renovations</a>
+                </div>
+            </div>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        <a href="contact.html" class="btn-magnetic btn-accent">Get Free Quote</a>
+    </header>
+
+    <!-- Tailwind Script for this specific page -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandOrange: '#F97316',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <div class="font-['Outfit'] bg-white pb-20">
+        <!-- Hero Section -->
+        <div class="relative w-full overflow-hidden flex flex-col md:flex-row min-h-[600px] bg-white">
+            <!-- Left Side (White) -->
+            <div class="w-full md:w-[60%] bg-white p-12 md:pl-20 lg:pl-24 py-16 md:py-24 z-10 flex flex-col justify-center relative shadow-[10px_0_30px_rgba(0,0,0,0.05)]">
+                
+                <h1 class="text-6xl md:text-[5.5rem] font-black tracking-tight leading-none mb-4 text-[#1A1A24]">
+                    <span class="text-brandOrange">RE</span>NOVATIONS
+                </h1>
+                
+                <h3 class="text-xl md:text-2xl font-bold text-brandOrange mb-4 tracking-wide">Breathe new life into your space.</h3>
+                <p class="text-gray-800 font-semibold mb-8 text-lg">Our refurbishment expertise revitalizes properties by:</p>
+                
+                <!-- List -->
+                <div class="flex flex-col gap-6 mb-12">
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 rounded-full border-2 border-brandOrange flex items-center justify-center text-brandOrange shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                        </div>
+                        <div class="border-l-2 border-[#E5E7EB] pl-5 py-1">
+                            <h4 class="font-bold text-gray-900 text-[1.1rem] leading-tight">Enhancing aesthetics</h4>
+                            <p class="text-gray-600 text-sm mt-1">Modern, refreshed designs</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 rounded-full border-2 border-brandOrange flex items-center justify-center text-brandOrange shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div class="border-l-2 border-[#E5E7EB] pl-5 py-1">
+                            <h4 class="font-bold text-gray-900 text-[1.1rem] leading-tight">Optimizing functionality</h4>
+                            <p class="text-gray-600 text-sm mt-1">Smarter layouts & systems</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 rounded-full border-2 border-brandOrange flex items-center justify-center text-brandOrange shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <div class="border-l-2 border-[#E5E7EB] pl-5 py-1">
+                            <h4 class="font-bold text-gray-900 text-[1.1rem] leading-tight">Maximizing asset value</h4>
+                            <p class="text-gray-600 text-sm mt-1">ROI-driven transformations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Three pillars -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-gray-100">
+                    <div class="flex items-center gap-4">
+                        <svg class="w-10 h-10 text-brandOrange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        <div>
+                            <h5 class="text-brandOrange font-bold text-sm tracking-wide">SCALE</h5>
+                            <p class="text-xs text-gray-600 font-medium">Large-scale<br>renovations</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <svg class="w-10 h-10 text-brandOrange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"></circle><circle cx="12" cy="12" r="4" stroke-width="2"></circle><line x1="12" y1="2" x2="12" y2="6" stroke-width="2"></line><line x1="12" y1="18" x2="12" y2="22" stroke-width="2"></line><line x1="2" y1="12" x2="6" y2="12" stroke-width="2"></line><line x1="18" y1="12" x2="22" y2="12" stroke-width="2"></line></svg>
+                        <div>
+                            <h5 class="text-brandOrange font-bold text-sm tracking-wide">TARGETED</h5>
+                            <p class="text-xs text-gray-600 font-medium">Targeted<br>improvements</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <svg class="w-10 h-10 text-brandOrange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <div>
+                            <h5 class="text-brandOrange font-bold text-sm tracking-wide">PROMISE</h5>
+                            <p class="text-xs text-gray-600 font-medium">Minimal disruption,<br>maximum impact.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side (Image + Diagonal clip + Thick Orange Border) -->
+            <div class="w-full md:w-[45%] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-full relative h-[400px]">
+                <!-- Large Orange Diagonal Thick Border -->
+                <div class="absolute inset-0 bg-brandOrange hidden md:block" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%, 0 50%); right:-1px; z-index:1;"></div>
+                
+                <!-- Main Image -->
+                <div class="absolute inset-0 right-0 h-full overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 100%, 30% 100%, 5% 50%); margin-left: 20px; z-index:2;">
+                    <img src="media/Modern corporate lobby with city view.png" class="w-full h-full object-cover" alt="Renovated Lobby">
+                    <!-- Overlay shadow for text -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A24] via-transparent to-transparent opacity-80"></div>
+                </div>
+
+                <!-- Right corner text overlay -->
+                <div class="absolute bottom-12 right-12 z-10 text-right md:text-left drop-shadow-lg">
+                    <h3 class="text-2xl md:text-3xl font-bold text-white tracking-wide">TRANSFORMING SPACES.</h3>
+                    <h3 class="text-2xl md:text-3xl font-bold text-brandOrange tracking-wide">ELEVATING EXPERIENCES.</h3>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Before & After Gallery -->
+        <div class="max-w-[1500px] mx-auto px-4 mt-16 mb-20 relative z-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <!-- Image 1 -->
+                <div class="relative w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <img src="media/1.png" class="w-full h-auto object-cover" alt="Before and After Renovation 1">
+                    <div class="absolute top-4 left-[25%] -translate-x-1/2 bg-black/60 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm tracking-wider z-10 shadow-md transition-opacity opacity-90 group-hover:opacity-100">BEFORE</div>
+                    <div class="absolute top-4 right-[25%] translate-x-1/2 bg-black/60 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm tracking-wider z-10 shadow-md transition-opacity opacity-90 group-hover:opacity-100">AFTER</div>
+                    <!-- Center Arrow Circle -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-brandOrange rounded-full border-4 border-white flex items-center justify-center text-white shadow-md z-10">
+                        <svg class="w-5 h-5 ml-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                </div>
+                <!-- Image 2 -->
+                <div class="relative w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <img src="media/2.png" class="w-full h-auto object-cover" alt="Before and After Renovation 2">
+                    <div class="absolute top-4 left-[25%] -translate-x-1/2 bg-black/60 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm tracking-wider z-10 shadow-md transition-opacity opacity-90 group-hover:opacity-100">BEFORE</div>
+                    <div class="absolute top-4 right-[25%] translate-x-1/2 bg-black/60 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm tracking-wider z-10 shadow-md transition-opacity opacity-90 group-hover:opacity-100">AFTER</div>
+                    <!-- Center Arrow Circle -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-brandOrange rounded-full border-4 border-white flex items-center justify-center text-white shadow-md z-10">
+                        <svg class="w-5 h-5 ml-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                </div>
+            </div>
+            <!-- Row 2: Image 3 Centered -->
+            <div class="flex justify-center">
+                <div class="relative w-full md:w-1/2 rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
+                    <img src="media/3.png" class="w-full h-auto object-cover" alt="Before and After Renovation 3">
+                    <div class="absolute top-4 left-[25%] -translate-x-1/2 bg-black/60 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm tracking-wider z-10 shadow-md transition-opacity opacity-90 group-hover:opacity-100">BEFORE</div>
+                    <div class="absolute top-4 right-[25%] translate-x-1/2 bg-black/60 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm tracking-wider z-10 shadow-md transition-opacity opacity-90 group-hover:opacity-100">AFTER</div>
+                    <!-- Center Arrow Circle -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-brandOrange rounded-full border-4 border-white flex items-center justify-center text-white shadow-md z-10">
+                        <svg class="w-5 h-5 ml-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Icons -->
+        <div class="w-[95%] max-w-[1500px] mx-auto px-6 md:px-12 lg:px-20 flex flex-wrap justify-center md:justify-between items-start gap-4 pt-12 pb-16 border-t border-gray-100 bg-[#fafafa] rounded-t-3xl shadow-[inset_0_10px_20px_rgba(0,0,0,0.02)] relative z-20">
+            <div class="flex items-center gap-4">
+                <div class="text-brandOrange">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <div>
+                    <h5 class="text-brandOrange font-bold text-sm tracking-wide">EXPERT TEAM</h5>
+                    <p class="text-xs text-gray-600 font-medium">Skilled professionals<br>delivering excellence</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-brandOrange">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                </div>
+                <div>
+                    <h5 class="text-brandOrange font-bold text-sm tracking-wide">QUALITY ASSURED</h5>
+                    <p class="text-xs text-gray-600 font-medium">Premium materials<br>& superior workmanship</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-brandOrange">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"></circle><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"></path></svg>
+                </div>
+                <div>
+                    <h5 class="text-brandOrange font-bold text-sm tracking-wide">ON TIME DELIVERY</h5>
+                    <p class="text-xs text-gray-600 font-medium">Efficient planning<br>& timely execution</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-brandOrange">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <div>
+                    <h5 class="text-brandOrange font-bold text-sm tracking-wide">END TO END SERVICE</h5>
+                    <p class="text-xs text-gray-600 font-medium">From concept to<br>completion</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Premium Super Footer -->
+    <footer class="footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="f-brand">
+                    <img src="media/WAM LOGO-02.png" alt="Wadi Al Manar Logo" class="f-logo" style="height: 70px;">
+                    <p>Engineering Better Spaces with Precision & Excellence. Premium technical services in Dubai.</p>
+                </div>
+                <div class="f-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="f-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="painting-works.html">Painting Works</a></li>
+                        <li><a href="electrical-works.html">Electrical Works</a></li>
+                        <li><a href="fit-out-works.html">IT Solutions</a></li>
+                        <li><a href="renovations.html">Renovations</a></li>
+                    </ul>
+                </div>
+                <div class="f-newsletter">
+                    <h4 style="color: #F97316; margin-bottom: 1.5rem; font-size: 1.2rem;">Newsletter</h4>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Subscribe to get the latest news and updates.</p>
+                    <form style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <input type="email" placeholder="Your Email" style="padding: 0.8rem; flex: 1; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; border-radius: 4px;">
+                        <button type="button" style="background: #F97316; color: white; border: none; padding: 0 1.5rem; border-radius: 4px; cursor: pointer; font-weight: 600;">Subscribe</button>
+                    </form>
+                    <div class="f-contact-info" style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                        <p style="margin-bottom: 0.5rem;">📍 Bur Dubai - Al Fahidi - Dubai</p>
+                        <p style="margin-bottom: 0.5rem;">📞 +971 52 795 0408</p>
+                        <p>✉️ info@wadialmanar.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wadi Al Manar Technical Services LLC. All rights reserved.</p>
+                <div class="social-links" style="display: flex; gap: 1rem; align-items: center;">
+                    <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.392-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.18 7.773 21.692 5.25 22 4.009z"></path></svg></a>
+                    <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Sticky Navbar
+        const navbar = document.querySelector('.premium-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
