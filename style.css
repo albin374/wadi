@@ -77,7 +77,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: #FFFFFF;
+    background: transparent;
     transition: all 0.3s ease;
 }
 
@@ -120,13 +120,16 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 3rem; /* slightly move to the right */
 }
 .premium-nav .nav-links a {
-    color: #111111;
+    color: #FFFFFF;
     text-decoration: none;
     margin: 0 1rem;
     font-weight: 600;
     font-size: 0.9rem;
     position: relative;
     transition: var(--transition);
+}
+.premium-nav.nav-scrolled .nav-links a {
+    color: #111111;
 }
 .premium-nav .nav-links a::after {
     content: '';
@@ -288,7 +291,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero */
 .hero-premium {
     position: relative;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -743,6 +746,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     .premium-nav .nav-links > a {
         padding: 1.2rem 2rem;
+        color: #111111;
     }
     .nav-dropdown {
         position: relative;
@@ -754,6 +758,7 @@ h1, h2, h3, h4, h5, h6 {
         text-align: left;
         font-size: 1.2rem;
         margin: 0;
+        color: #111111;
     }
     .premium-nav.solid-bg-nav ~ div:first-of-type {
         padding-top: 100px;
