@@ -26,16 +26,16 @@
             <div class="nav-dropdown">
                 <a href="services.html">Services</a><span class="mobile-toggle">▼</span>
                 <div class="dropdown-content">
-                    <a href="civil.html">Civil</a>
-                    <a href="design.html">Design</a>
-                    <a href="fit-out-works.html">IT Solutions</a>
-                    <a href="renovations.html">Renovations</a>
                     <a href="joinery-works.html">Joinery Works</a>
-                    <a href="painting-works.html">Painting Works</a>
                     <a href="electrical-works.html">MEP Services</a>
+                    <a href="design.html">Design</a>
+                    <a href="civil.html">Civil</a>
+                    <a href="renovations.html">Renovations</a>
+                    <a href="fit-out-works.html">IT Solutions</a>
                     <a href="ac-works.html">AC Installation & Services</a>
-                    <a href="flooring-works.html">Floor and wall tiling works</a>
+                    <a href="painting-works.html">Painting Works</a>
                     <a href="gypsum-works.html">Gypsum ceiling and partition works</a>
+                    <a href="flooring-works.html">Floor and wall tiling works</a>
                 </div>
             </div>
             <a href="projects.html">Projects</a>
@@ -56,10 +56,8 @@
             <div class="slide" style="background-image: url('media/banner imge 4.webp');"></div>
         </div>
         
-        <div class="hero-content-wrapper" style="text-align: left !important; margin: 0 auto; width: 100%;">
-            <div style="background-color: #F97316; padding: 1.5rem 2rem; max-width: 450px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
-                <h1 class="reveal-text" style="color: white !important; margin-bottom: 0; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.2;">Transforming Spaces into<br>Timeless Living Experiences</h1>
-            </div>
+        <div class="hero-content-wrapper">
+            <h1 class="reveal-text">Transforming Spaces into<br><span style="color: #F97316;">Timeless Living Experiences</span></h1>
         </div>
 
 
@@ -68,8 +66,18 @@
     <!-- About Us Section -->
     <section class="about-premium padding-y">
         <div class="container split-layout">
-            <div class="split-left" style="text-align: center;">
-                <img src="media/Gemini_Generated_Image_j0ncpij0ncpij0nc.png" alt="Engineers working" style="max-width: 70%; height: auto; object-fit: contain; margin: 0 auto; display: inline-block;">
+            <div class="split-left" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: center; position: relative;">
+                <!-- Decorative Dots on all sides and corners -->
+                <div style="position: absolute; top: -20px; left: -20px; right: -20px; bottom: -20px; background-image: radial-gradient(#F97316 2px, transparent 2px); background-size: 20px 20px; z-index: -1; opacity: 0.6;"></div>
+                
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <img src="media/Gemini_Generated_Image_j0ncpij0ncpij0nc.png" alt="Engineers working" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                    <img src="media/Modern minimalist lounge with forest view.png" alt="Lounge with forest view" style="width: 100%; height: 320px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 1rem; transform: translateY(2rem);">
+                    <img src="media/Modern luxury living room design.png" alt="Luxury living room" style="width: 100%; height: 320px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                    <img src="media/Serene minimalist living room interior.png" alt="Serene minimalist interior" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                </div>
             </div>
             <div class="split-right">
                 <span class="subtitle accent-text">About Us</span>
@@ -91,26 +99,6 @@
             
             <div class="swiper services-swiper">
                 <div class="swiper-wrapper">
-                <!-- Service Card 1 -->
-                <div class="swiper-slide service-card-luxury group">
-                    <img src="media/bg_maintenance_1782716398847.png" alt="Renovations">
-                    <div class="scl-overlay"></div>
-                    <div class="scl-content">
-                        <h3>Renovations</h3>
-                        <p>Our comprehensive maintenance services keep your property in top condition, handling repairs, inspections, and routine upkeep with expertise.</p>
-                        <a href="renovations.html" class="scl-btn">Read More <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                <!-- Service Card 2 -->
-                <div class="swiper-slide service-card-luxury group">
-                    <img src="media/Modern corporate lobby with city view.png" alt="Design">
-                    <div class="scl-overlay"></div>
-                    <div class="scl-content">
-                        <h3>Design</h3>
-                        <p>From vision to reality. We design exceptional environments that reflect your unique style, purpose, and aspirations.</p>
-                        <a href="design.html" class="scl-btn">Read More <span class="arrow">→</span></a>
-                    </div>
-                </div>
                 <!-- Service Card 3 -->
                 <div class="swiper-slide service-card-luxury group">
                     <img src="media/bg_carpentry_1782716444867.png" alt="Joinery Works">
@@ -121,17 +109,7 @@
                         <a href="joinery-works.html" class="scl-btn">Read More <span class="arrow">→</span></a>
                     </div>
                 </div>
-                <!-- Service Card 4 -->
-                <div class="swiper-slide service-card-luxury group">
-                    <img src="media/bg_painting_1782716314003.png" alt="Painting Works">
-                    <div class="scl-overlay"></div>
-                    <div class="scl-content">
-                        <h3>Painting Works</h3>
-                        <p>Color your world with precision. We use high-performance coatings and proven techniques to deliver smooth, long-lasting finishes that add character, value, and visual appeal — for both interiors and exteriors.</p>
-                        <a href="painting-works.html" class="scl-btn">Read More <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                <!-- Service Card 5 -->
+<!-- Service Card 5 -->
                 <div class="swiper-slide service-card-luxury group">
                     <img src="media/bg_electrical_1782716326213.png" alt="MEP Services">
                     <div class="scl-overlay"></div>
@@ -141,7 +119,17 @@
                         <a href="electrical-works.html" class="scl-btn">Read More <span class="arrow">→</span></a>
                     </div>
                 </div>
-                <!-- Service Card 6 -->
+<!-- Service Card 2 -->
+                <div class="swiper-slide service-card-luxury group">
+                    <img src="media/Modern corporate lobby with city view.png" alt="Design">
+                    <div class="scl-overlay"></div>
+                    <div class="scl-content">
+                        <h3>Design</h3>
+                        <p>From vision to reality. We design exceptional environments that reflect your unique style, purpose, and aspirations.</p>
+                        <a href="design.html" class="scl-btn">Read More <span class="arrow">→</span></a>
+                    </div>
+                </div>
+<!-- Service Card 6 -->
                 <div class="swiper-slide service-card-luxury group">
                     <img src="media/modern cicivl.png" alt="Civil">
                     <div class="scl-overlay"></div>
@@ -151,7 +139,17 @@
                         <a href="civil.html" class="scl-btn">Read More <span class="arrow">→</span></a>
                     </div>
                 </div>
-                <!-- Service Card 7 -->
+<!-- Service Card 1 -->
+                <div class="swiper-slide service-card-luxury group">
+                    <img src="media/bg_maintenance_1782716398847.png" alt="Renovations">
+                    <div class="scl-overlay"></div>
+                    <div class="scl-content">
+                        <h3>Renovations</h3>
+                        <p>Our comprehensive maintenance services keep your property in top condition, handling repairs, inspections, and routine upkeep with expertise.</p>
+                        <a href="renovations.html" class="scl-btn">Read More <span class="arrow">→</span></a>
+                    </div>
+                </div>
+<!-- Service Card 7 -->
                 <div class="swiper-slide service-card-luxury group">
                     <img src="media/IT solutions 2.png" alt="IT Solutions">
                     <div class="scl-overlay"></div>
@@ -161,17 +159,7 @@
                         <a href="fit-out-works.html" class="scl-btn">Read More <span class="arrow">→</span></a>
                     </div>
                 </div>
-                <!-- Service Card 8 -->
-                <div class="swiper-slide service-card-luxury group">
-                    <img src="media/bg_flooring_1782716357761.png" alt="Floor and wall tiling works">
-                    <div class="scl-overlay"></div>
-                    <div class="scl-content">
-                        <h3>Floor and wall tiling works</h3>
-                        <p>Foundations of beauty & durability. Expertly installed floor and wall tiles using high-quality materials and skilled workmanship.</p>
-                        <a href="flooring-works.html" class="scl-btn">Read More <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                <!-- Service Card 9 -->
+<!-- Service Card 9 -->
                 <div class="swiper-slide service-card-luxury group">
                     <img src="media/premium_ac_hvac.png" alt="AC Installation & Services">
                     <div class="scl-overlay"></div>
@@ -181,7 +169,17 @@
                         <a href="ac-works.html" class="scl-btn">Read More <span class="arrow">→</span></a>
                     </div>
                 </div>
-                <!-- Service Card 10 -->
+<!-- Service Card 4 -->
+                <div class="swiper-slide service-card-luxury group">
+                    <img src="media/bg_painting_1782716314003.png" alt="Painting Works">
+                    <div class="scl-overlay"></div>
+                    <div class="scl-content">
+                        <h3>Painting Works</h3>
+                        <p>Color your world with precision. We use high-performance coatings and proven techniques to deliver smooth, long-lasting finishes that add character, value, and visual appeal — for both interiors and exteriors.</p>
+                        <a href="painting-works.html" class="scl-btn">Read More <span class="arrow">→</span></a>
+                    </div>
+                </div>
+<!-- Service Card 10 -->
                 <div class="swiper-slide service-card-luxury group">
                     <img src="media/bg_gypsum_1782716384460.png" alt="Gypsum ceiling and partition works">
                     <div class="scl-overlay"></div>
@@ -189,6 +187,16 @@
                         <h3>Gypsum ceiling and partition works</h3>
                         <p>Define your space with elegance. Custom-designed gypsum ceilings and partitions for residential, commercial, and corporate environments.</p>
                         <a href="gypsum-works.html" class="scl-btn">Read More <span class="arrow">→</span></a>
+                    </div>
+                </div>
+<!-- Service Card 8 -->
+                <div class="swiper-slide service-card-luxury group">
+                    <img src="media/bg_flooring_1782716357761.png" alt="Floor and wall tiling works">
+                    <div class="scl-overlay"></div>
+                    <div class="scl-content">
+                        <h3>Floor and wall tiling works</h3>
+                        <p>Foundations of beauty & durability. Expertly installed floor and wall tiles using high-quality materials and skilled workmanship.</p>
+                        <a href="flooring-works.html" class="scl-btn">Read More <span class="arrow">→</span></a>
                     </div>
                 </div>
             </div>
