@@ -128,7 +128,7 @@
     <!-- Navigation -->
     <header class="navbar premium-nav">
         <div class="logo">
-            <img src="media/WAM LOGO-02.png" alt="Wadi Al Manar Logo" height="70">
+            <img src="media/WAM_LOGO_no_background.png" alt="Wadi Al Manar Logo" height="70">
         </div>
         <nav class="nav-links">
             <a href="index.html">Home</a>
@@ -221,119 +221,12 @@
 </script>
 <!-- Hero Section -->
 <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
-<!-- STITCH_SHADER_START:ANIMATION_2 class="absolute inset-0 w-full h-full z-0" -->
-<div class="absolute inset-0 w-full h-full z-0" style="display:block;">
-<canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
-<script>
-(function() {
-  const canvas = document.getElementById('shader-canvas-ANIMATION_2');
-
-  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
-  // This fires on initial layout and whenever the element is resized.
-  function syncSize() {
-    const w = canvas.clientWidth  || 1280;
-    const h = canvas.clientHeight || 720;
-    if (canvas.width !== w || canvas.height !== h) {
-      canvas.width  = w;
-      canvas.height = h;
-    }
-  }
-  if (typeof ResizeObserver !== 'undefined') {
-    new ResizeObserver(syncSize).observe(canvas);
-  }
-  syncSize();
-
-  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-  if (!gl) return;
-  const vs = `attribute vec2 a_position;
-varying vec2 v_texCoord;
-void main() {
-  v_texCoord = a_position * 0.5 + 0.5;
-  gl_Position = vec4(a_position, 0.0, 1.0);
-}`;
-  const fs = `precision highp float;
-uniform float u_time;
-uniform vec2 u_resolution;
-
-float line(vec2 p, vec2 a, vec2 b, float thickness) {
-    vec2 pa = p - a, ba = b - a;
-    float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
-    return smoothstep(thickness, 0.0, length(pa - ba * h));
-}
-
-void main() {
-    vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / min(u_resolution.y, u_resolution.x);
-    vec3 color = vec3(0.02, 0.02, 0.02); // Dark charcoal background
-    
-    float grid = 0.0;
-    vec2 g_uv = fract(uv * 10.0 + u_time * 0.05);
-    grid += smoothstep(0.02, 0.0, abs(g_uv.x - 0.5));
-    grid += smoothstep(0.02, 0.0, abs(g_uv.y - 0.5));
-    color += grid * vec3(0.1, 0.1, 0.1);
-
-    // Floating architectural lines
-    for(int i = 0; i < 5; i++) {
-        float t = u_time * 0.2 + float(i) * 1.5;
-        vec2 p1 = vec2(sin(t), cos(t * 0.7)) * 0.8;
-        vec2 p2 = vec2(cos(t * 1.2), sin(t * 0.5)) * 0.8;
-        float l = line(uv, p1, p2, 0.005);
-        color += l * vec3(0.98, 0.45, 0.09) * 0.6; // Orange lines
-    }
-
-    gl_FragColor = vec4(color, 1.0);
-}`;
-  function cs(type, src) {
-    const s = gl.createShader(type);
-    gl.shaderSource(s, src);
-    gl.compileShader(s);
-    return s;
-  }
-  const prog = gl.createProgram();
-  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
-  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
-  gl.linkProgram(prog);
-  gl.useProgram(prog);
-  const buf = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
-  const pos = gl.getAttribLocation(prog, 'a_position');
-  gl.enableVertexAttribArray(pos);
-  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-  const uTime = gl.getUniformLocation(prog, 'u_time');
-  const uRes = gl.getUniformLocation(prog, 'u_resolution');
-  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
-
-  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
-  // Shaders that need normalized coords should use: u_mouse / u_resolution.
-  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-  window.addEventListener('mousemove', (event) => {
-    const rect = canvas.getBoundingClientRect();
-    if (rect.width && rect.height) {
-      const nx = (event.clientX - rect.left) / rect.width;
-      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
-      mouse.x = nx * canvas.width;
-      mouse.y = ny * canvas.height;
-    }
-  });
-
-  function render(t) {
-    if (typeof ResizeObserver === 'undefined') syncSize();
-    gl.viewport(0, 0, canvas.width, canvas.height);
-    if (uTime) gl.uniform1f(uTime, t * 0.001);
-    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
-    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-    requestAnimationFrame(render);
-  }
-  render(0);
-})();
-</script>
-</div>
-<!-- STITCH_SHADER_END:ANIMATION_2 -->
-<div class="absolute inset-0 bg-black/40 z-10"></div>
-<div class="relative z-20 text-center px-margin-mobile md:px-margin-desktop max-w-5xl">
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6 animate-fade-in-up">Our Projects - Transforming Spaces Across Dubai</h1>
-<p class="font-body-lg text-white/80 mb-10 max-w-2xl mx-auto">We redefine technical services with architectural precision. From high-rise maintenance to luxury villa fit-outs, our commitment to quality is visible in every dimension.</p>
+        <div class="absolute inset-0 w-full h-full z-0">
+            <img src="media/projects banner.png" alt="Projects Banner" class="w-full h-full object-cover">
+        </div>
+<div class="relative z-20 text-center px-margin-mobile md:px-margin-desktop max-w-5xl drop-shadow-2xl">
+<h1 class="font-display-lg font-bold text-display-lg-mobile md:text-display-lg text-white mb-6 animate-fade-in-up">Our Projects - <br><span class="text-primary">Transforming Spaces Across Dubai</span></h1>
+<p class="font-body-lg font-bold text-white mb-10 max-w-2xl mx-auto tracking-wide" style="text-shadow: 0px 4px 10px rgba(0,0,0,0.8);">We redefine technical services with architectural precision. From high-rise maintenance to luxury villa fit-outs, our commitment to quality is visible in every dimension.</p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
 <button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-full font-label-caps text-label-caps tracking-widest hover:scale-105 transition-all shadow-xl">EXPLORE PROJECTS</button>
 <button class="border border-white text-white px-10 py-4 rounded-full font-label-caps text-label-caps tracking-widest hover:bg-white/10 transition-all">CONTACT US</button>
@@ -369,19 +262,154 @@ void main() {
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop flex gap-4 overflow-x-auto no-scrollbar py-2">
 <div id="filter-buttons" class="flex flex-wrap justify-center gap-4">
     <button data-filter="all" class="filter-btn px-8 py-2 rounded-full bg-primary text-white whitespace-nowrap font-label-caps text-label-caps transition-colors">All Projects</button>
-    <button data-filter="painting" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Painting</button>
-    <button data-filter="electrical" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Electrical</button>
-    <button data-filter="elv" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">ELV Systems</button>
-    <button data-filter="fit-out" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Fit Out</button>
-    <button data-filter="hvac" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">HVAC</button>
-    <button data-filter="plumbing" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Plumbing</button>
+    <button data-filter="design" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Design</button>
+    <button data-filter="renovations" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Renovations</button>
+    <button data-filter="joinery" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Joinery Works</button>
+    <button data-filter="painting" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Painting Works</button>
+    <button data-filter="mep" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">MEP</button>
+    <button data-filter="civil" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Civil</button>
+    <button data-filter="it-solutions" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">IT Solutions</button>
+    <button data-filter="flooring" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Floor & Wall Tiling</button>
+    <button data-filter="ac-works" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">AC Installation</button>
+    <button data-filter="gypsum" class="filter-btn px-8 py-2 rounded-full bg-white text-secondary hover:bg-primary-container/10 transition-colors border border-outline-variant/30 whitespace-nowrap font-label-caps text-label-caps">Gypsum Works</button>
 </div>
 </section>
 <!-- Featured Projects (Masonry Style) -->
 <section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background">
 <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8" id="projects-grid">
+
+<!-- Design Project 1: TV Design -->
+<div data-category="design" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[16/9] md:aspect-[2/1] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/prdesgin3.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">INTERIOR DESIGN</div>
+<h3 class="text-white font-headline-md mb-2">Modern TV Lounge Design</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Dubai</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- Design Project 2: Bedroom -->
+<div data-category="design" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/prdsgin2.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">INTERIOR DESIGN</div>
+<h3 class="text-white font-headline-md mb-2">Luxury Master Bedroom</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Palm Jumeirah</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- Design Project 3: Kitchen -->
+<div data-category="design" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/desgin11.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">INTERIOR DESIGN</div>
+<h3 class="text-white font-headline-md mb-2">Contemporary Kitchen Concept</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Downtown Dubai</span>
+<span>2023</span>
+</div>
+</div>
+</div>
+
+<!-- Renovation Project 1: Villa -->
+<div data-category="renovations" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[16/9] md:aspect-[2/1] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/renovation_villa.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">RENOVATIONS</div>
+<h3 class="text-white font-headline-md mb-2">Modern Villa Exterior Renovation</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Jumeirah Golf Estates</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- Renovation Project 2: Bathroom -->
+<div data-category="renovations" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/renovation_bathroom.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">RENOVATIONS</div>
+<h3 class="text-white font-headline-md mb-2">Penthouse Luxury Bath</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Dubai Marina</span>
+<span>2023</span>
+</div>
+</div>
+</div>
+
+<!-- Renovation Project 3: Office -->
+<div data-category="renovations" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/renovation_office.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">RENOVATIONS</div>
+<h3 class="text-white font-headline-md mb-2">Corporate Office Upgrade</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Business Bay</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- Joinery Project 1: Closet -->
+<div data-category="joinery" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[16/9] md:aspect-[2/1] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/joinery_closet.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">JOINERY WORKS</div>
+<h3 class="text-white font-headline-md mb-2">Custom Walk-In Closet</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Dubai Penthouse</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- Joinery Project 2: Kitchen -->
+<div data-category="joinery" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/joinery_kitchen.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">JOINERY WORKS</div>
+<h3 class="text-white font-headline-md mb-2">Bespoke Kitchen Cabinets</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Emirates Hills</span>
+<span>2023</span>
+</div>
+</div>
+</div>
+
+<!-- Joinery Project 3: Paneling -->
+<div data-category="joinery" class="project-card md:col-span-6 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/joinery_paneling.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">JOINERY WORKS</div>
+<h3 class="text-white font-headline-md mb-2">Acoustic Wall Paneling</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>DIFC Boardroom</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- Joinery Project 4: Doors -->
+<div data-category="joinery" class="project-card md:col-span-6 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/joinery_doors.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">JOINERY WORKS</div>
+<h3 class="text-white font-headline-md mb-2">Solid Wood Entrance Doors</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Al Barari Estate</span>
+<span>2023</span>
+</div>
+</div>
+</div>
+
 <!-- Project 1: Fit Out -->
-<div data-category="fit-out" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[4/3] md:aspect-[16/10] shadow-sm hover:shadow-xl transition-all duration-500">
+<div data-category="fit-out" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[16/9] md:aspect-[2/1] shadow-sm hover:shadow-xl transition-all duration-500">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/Modern corporate lobby with city view.png')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
 <div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">LUXURY FIT-OUT</div>
@@ -393,21 +421,10 @@ void main() {
 </div>
 </div>
 
-<!-- Project 2: ELV Systems -->
-<div data-category="elv" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-[4/5] shadow-sm hover:shadow-xl transition-all duration-500">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/data_center.png')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">ELV SYSTEMS</div>
-<h3 class="text-white font-headline-md mb-2">TechHub Data Center</h3>
-<div class="flex justify-between items-center text-white/70 font-technical-mono">
-<span>Abu Dhabi</span>
-<span>2023</span>
-</div>
-</div>
-</div>
+
 
 <!-- Project 3: Painting -->
-<div data-category="painting" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-[4/5] shadow-sm hover:shadow-xl transition-all duration-500">
+<div data-category="painting" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/bg_painting_1782716314003.png')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
 <div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">EXTERIOR PAINTING</div>
@@ -420,7 +437,7 @@ void main() {
 </div>
 
 <!-- Project 4: HVAC -->
-<div data-category="hvac" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[4/3] md:aspect-[16/10] shadow-sm hover:shadow-xl transition-all duration-500">
+<div data-category="hvac" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[16/9] md:aspect-[2/1] shadow-sm hover:shadow-xl transition-all duration-500">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/premium_ac_hvac.png')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
 <div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">HVAC &amp; DUCTING</div>
@@ -432,12 +449,50 @@ void main() {
 </div>
 </div>
 
-<!-- Project 5: Electrical -->
-<div data-category="electrical" class="project-card md:col-span-6 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/bg_electrical_1782716326213.png')"></div>
+<!-- MEP Project 1: Mechanical -->
+<div data-category="mep" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[16/9] md:aspect-[2/1] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/mep_performance.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">MEP WORKS</div>
+<h3 class="text-white font-headline-md mb-2">HVAC Performance Engineering</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Mechanical Division</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- MEP Project 2: Electrical -->
+<div data-category="mep" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/mep_reliability.png')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">ELECTRICAL WORKS</div>
-<h3 class="text-white font-headline-md mb-2">Commercial Tower Wiring</h3>
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">MEP WORKS</div>
+<h3 class="text-white font-headline-md mb-2">Electrical Panel Reliability</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Electrical Division</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- MEP Project 3: Plumbing -->
+<div data-category="mep" class="project-card md:col-span-12 group relative rounded-[20px] overflow-hidden aspect-[16/9] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/mep_sustainability.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">MEP WORKS</div>
+<h3 class="text-white font-headline-md mb-2">Sustainable Plumbing Systems</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Plumbing Division</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+<!-- Civil Project 1 -->
+<div data-category="civil" class="project-card md:col-span-6 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/civil_interior_1.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">CIVIL ENGINEERING</div>
+<h3 class="text-white font-headline-md mb-2">Luxury Interior Concrete Finishes</h3>
 <div class="flex justify-between items-center text-white/70 font-technical-mono">
 <span>Dubai</span>
 <span>2024</span>
@@ -445,50 +500,177 @@ void main() {
 </div>
 </div>
 
-<!-- Project 6: Plumbing -->
-<div data-category="plumbing" class="project-card md:col-span-6 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/bg_maintenance_1782716398847.png')"></div>
+<!-- Civil Project 2 -->
+<div data-category="civil" class="project-card md:col-span-6 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/civil_interior_2.png')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">PLUMBING & MAINTENANCE</div>
-<h3 class="text-white font-headline-md mb-2">Luxury Resort Plumbing</h3>
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">CIVIL ENGINEERING</div>
+<h3 class="text-white font-headline-md mb-2">Interior Structural Beam Engineering</h3>
 <div class="flex justify-between items-center text-white/70 font-technical-mono">
-<span>Ajman</span>
+<span>Dubai</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- IT Solutions Project 1 -->
+<div data-category="it-solutions" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[16/9] md:aspect-[2/1] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/it_smart_office.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">IT SOLUTIONS</div>
+<h3 class="text-white font-headline-md mb-2">Smart Office Automation</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>DIFC HQ</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- IT Solutions Project 2 -->
+<div data-category="it-solutions" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/it_security.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">IT SOLUTIONS</div>
+<h3 class="text-white font-headline-md mb-2">Security & Access Control</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Business Bay Tower</span>
 <span>2023</span>
 </div>
 </div>
 </div>
+
+<!-- IT Solutions Project 3 -->
+<div data-category="it-solutions" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/wifi solutions.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">IT SOLUTIONS</div>
+<h3 class="text-white font-headline-md mb-2">Enterprise Wi-Fi Systems</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Luxury Resort Palm</span>
+<span>2023</span>
+</div>
+</div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
+<!-- AC Works Project 1 -->
+<div data-category="ac-works" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[16/9] md:aspect-[2/1] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/premium_ac_hvac.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">AC INSTALLATION</div>
+<h3 class="text-white font-headline-md mb-2">Advanced Commercial HVAC</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Industrial Complex</span>
+<span>2024</span>
+</div>
+</div>
+</div>
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active classes from all buttons
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-primary', 'text-white');
-                    b.classList.add('bg-white', 'text-secondary');
-                });
 
-                // Add active class to clicked button
-                btn.classList.add('bg-primary', 'text-white');
-                btn.classList.remove('bg-white', 'text-secondary');
 
-                const filterValue = btn.getAttribute('data-filter');
+<!-- AC Works Project 3 -->
+<div data-category="ac-works" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/bg_ac_1782716370637.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">AC INSTALLATION</div>
+<h3 class="text-white font-headline-md mb-2">Premium AC Servicing</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Downtown Dubai</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+<!-- AC Works Project 4 -->
+<div data-category="ac-works" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/ac_gallery_3.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">AC INSTALLATION</div>
+<h3 class="text-white font-headline-md mb-2">HVAC Ducting Installation</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>JVC Residential</span>
+<span>2023</span>
+</div>
+</div>
+</div>
+<!-- Gypsum Project 1 -->
+<div data-category="gypsum" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[16/9] md:aspect-[2/1] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/gyp_hero.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">GYPSUM WORKS</div>
+<h3 class="text-white font-headline-md mb-2">Luxury Gypsum Ceiling</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Residential</span>
+<span>2024</span>
+</div>
+</div>
+</div>
 
-                projectCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-    });
-</script>
+<!-- Gypsum Project 2 -->
+<div data-category="gypsum" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/gyp_gal1.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">GYPSUM WORKS</div>
+<h3 class="text-white font-headline-md mb-2">Corporate Office Partitions</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Commercial</span>
+<span>2023</span>
+</div>
+</div>
+</div>
+
+<!-- Gypsum Project 3 -->
+<div data-category="gypsum" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-square shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/gyp_gal2.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">GYPSUM WORKS</div>
+<h3 class="text-white font-headline-md mb-2">Bespoke Gypsum Design</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Hospitality</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- Flooring Project 1 -->
+<div data-category="flooring" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/tile_hero.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">FLOOR & WALL TILING</div>
+<h3 class="text-white font-headline-md mb-2">Premium Hospitality Tiling</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Commercial</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+
+<!-- Flooring Project 2 -->
+<div data-category="flooring" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/renovation_bathroom.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">FLOOR & WALL TILING</div>
+<h3 class="text-white font-headline-md mb-2">Luxury Bathroom Tiling</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Residential</span>
+<span>2023</span>
+</div>
+</div>
+</div>
+
+<!-- Flooring Project 3 -->
+<div data-category="flooring" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/tile_res.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">FLOOR & WALL TILING</div>
+<h3 class="text-white font-headline-md mb-2">High-End Residential Flooring</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Residential</span>
+<span>2024</span>
+</div>
+</div>
+</div>
+</div>
+
+
 </section>
 
 <!-- Alternating Service Sections -->
@@ -755,7 +937,7 @@ void main() {
         <div class="container">
             <div class="footer-grid">
                 <div class="f-brand">
-                    <img src="media/WAM LOGO-02.png" alt="Wadi Al Manar Logo" class="f-logo" style="height: 70px;">
+                    <img src="media/WAM_LOGO_no_background.png" alt="Wadi Al Manar Logo" class="f-logo" style="height: 70px;">
                     <p>Engineering Better Spaces with Precision & Excellence. Premium technical services in Dubai.</p>
                 </div>
                 <div class="f-links">
@@ -770,10 +952,10 @@ void main() {
                 <div class="f-links">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="painting-works.html">Painting Works</a></li>
-                        <li><a href="electrical-works.html">Electrical Works</a></li>
-                        <li><a href="fit-out-works.html">IT Solutions</a></li>
+                        <li><a href="design.html">Design</a></li>
                         <li><a href="renovations.html">Renovations</a></li>
+                        <li><a href="joinery-works.html">Joinery Works</a></li>
+                        <li><a href="services.html">MEP Services</a></li>
                         <li><a href="services.html" style="color: #F97316; font-weight: 600;">More Services &rarr;</a></li>
                     </ul>
                 </div>
@@ -851,4 +1033,55 @@ void main() {
 
         document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
     </script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        // Initial filtering on page load to limit to 2 per category for "All Projects"
+        applyFilter('all');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-white');
+                    b.classList.add('bg-white', 'text-secondary');
+                });
+
+                // Add active class to clicked button
+                btn.classList.add('bg-primary', 'text-white');
+                btn.classList.remove('bg-white', 'text-secondary');
+
+                const filterValue = btn.getAttribute('data-filter');
+                applyFilter(filterValue);
+            });
+        });
+
+        function applyFilter(filterValue) {
+            let categoryCounts = {};
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                if (filterValue === 'all') {
+                    if (!categoryCounts[category]) {
+                        categoryCounts[category] = 0;
+                    }
+                    if (categoryCounts[category] < 2) {
+                        card.style.display = 'block';
+                        categoryCounts[category]++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                } else {
+                    if (category === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+    });
+</script>
 </body></html>
