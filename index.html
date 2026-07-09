@@ -74,8 +74,7 @@
     <section class="about-premium padding-y">
         <div class="container split-layout">
             <div class="split-left" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: center; position: relative;">
-                <!-- Decorative Dots on all sides and corners -->
-                <div style="position: absolute; top: -20px; left: -20px; right: -20px; bottom: -20px; background-image: radial-gradient(#F97316 2px, transparent 2px); background-size: 20px 20px; z-index: -1; opacity: 0.6;"></div>
+                
                 
                 <div style="display: flex; flex-direction: column; gap: 1rem;">
                     <img src="media/Gemini_Generated_Image_j0ncpij0ncpij0nc.png" alt="Engineers working" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
@@ -329,6 +328,62 @@
                 </div>
 
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Clients -->
+    <section class="clients-premium padding-y bg-neutral">
+        <div class="container text-center">
+            <div class="section-header">
+                <h2 style="color: #F97316;">Our Clients</h2>
+            </div>
+            <style>
+                @keyframes clientsMarquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .clients-marquee-content:hover {
+                    animation-play-state: paused;
+                }
+            </style>
+            <div class="clients-marquee-container" style="margin-top: 3rem; overflow: hidden; white-space: nowrap; width: 100%; position: relative;">
+                <div class="clients-marquee-content" style="display: flex; gap: 4rem; align-items: center; width: max-content; animation: clientsMarquee 40s linear infinite;">
+                    <!-- Original Set -->
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (1).png" alt="Client Logo 1"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (2).png" alt="Client Logo 2"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (3).png" alt="Client Logo 3"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (4).png" alt="Client Logo 4"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (5).png" alt="Client Logo 5"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (6).png" alt="Client Logo 6"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (7).png" alt="Client Logo 7"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (8).png" alt="Client Logo 8"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (9).png" alt="Client Logo 9"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (10).png" alt="Client Logo 10"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (11).png" alt="Client Logo 11"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (12).png" alt="Client Logo 12"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (13).png" alt="Client Logo 13"></div>
+                    <!-- Duplicate Set for Seamless Loop -->
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (1).png" alt="Client Logo 1"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (2).png" alt="Client Logo 2"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (3).png" alt="Client Logo 3"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (4).png" alt="Client Logo 4"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (5).png" alt="Client Logo 5"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (6).png" alt="Client Logo 6"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (7).png" alt="Client Logo 7"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (8).png" alt="Client Logo 8"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (9).png" alt="Client Logo 9"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (10).png" alt="Client Logo 10"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (11).png" alt="Client Logo 11"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (12).png" alt="Client Logo 12"></div>
+                    <div class="client-logo" style="flex: 0 0 auto;"><img src="media/logo (13).png" alt="Client Logo 13"></div>
+                </div>
+            </div>
+            
+            <div class="projects-stats-text" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.05);">
+                <h3 style="font-size: 2.2rem; font-weight: 500; font-family: 'Outfit', sans-serif; color: var(--text-dark); margin: 0;">
+                    More than <span style="color: #F97316; font-weight: 600;">200 Villas</span> 450 Flats
+                </h3>
             </div>
         </div>
     </section>
@@ -628,10 +683,12 @@
                 <div class="f-newsletter">
                     <h4 style="color: white; margin-bottom: 1.5rem; font-size: 1.2rem;">Contact Us</h4>
                     <div class="f-contact-info" style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
-                        <p style="margin-bottom: 0.5rem;">📍 Bur Dubai - Al Fahidi - Dubai</p>
-                        <p style="margin-bottom: 0.5rem;">📞 +971 52 795 0408</p>
+                        <p style="margin-bottom: 0.5rem;">📍 Umm ramool, Building No 32, Warehouse No 9, Dubai UAE</p>
                         <p style="margin-bottom: 0.5rem;">📞 +971 56 424 4083</p>
-                        <p>✉️ info@wadialmanar.com</p>
+                        <p style="margin-bottom: 0.5rem;">📞 +971 52 795 0408</p>
+                        <p style="margin-bottom: 0.5rem;">📞 04 257 8976</p>
+                        <p style="margin-bottom: 0.5rem;">✉️ info@wadialmanar.com</p>
+                        <p>🌐 wadialmanar.com</p>
                     </div>
                 </div>
             </div>
