@@ -120,11 +120,12 @@
             </div>
             <a href="projects.html">Projects</a>
             <a href="contact.html">Contact</a>
+        <a href="#" onclick="openBrochureModal(event)" class="mobile-brochure-btn">Download Brochure</a>
         </nav>
         <div class="hamburger">
             <span></span><span></span><span></span>
         </div>
-        <a href="contact.html" class="btn-magnetic btn-accent">Get Free Quote</a>
+        <a href="#" onclick="openBrochureModal(event)" class="btn-magnetic btn-accent">Download Brochure</a>
     </header>
 
     <!-- Tailwind Script for this specific page -->
@@ -411,5 +412,109 @@
             }
         });
     </script>
+
+<!-- Brochure Modal -->
+
+<style>
+/* Direct Brochure Modal Styles to bypass cache */
+.brochure-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 999999 !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
+    backdrop-filter: blur(5px) !important;
+}
+.brochure-modal-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.brochure-modal {
+    background: #F97316 !important;
+    border: none !important;
+    padding: 30px !important;
+    border-radius: 15px !important;
+    width: 90% !important;
+    max-width: 400px !important;
+    position: relative !important;
+    transform: translateY(20px);
+    transition: transform 0.3s ease !important;
+    box-shadow: 0 10px 40px rgba(249, 115, 22, 0.4) !important;
+}
+.brochure-modal-overlay.active .brochure-modal {
+    transform: translateY(0) !important;
+}
+.brochure-modal h3 {
+    color: #ffffff !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    font-size: 24px !important;
+}
+.brochure-modal p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 14px !important;
+    margin-bottom: 20px !important;
+}
+.brochure-modal input {
+    width: 100% !important;
+    padding: 12px 15px !important;
+    margin-bottom: 15px !important;
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: #111111 !important;
+    font-size: 16px !important;
+    box-sizing: border-box !important;
+}
+.brochure-modal input:focus {
+    outline: 2px solid #111111 !important;
+}
+.brochure-modal button[type="submit"] {
+    background: #111111 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+.brochure-modal button[type="submit"]:hover {
+    background: #333333 !important;
+}
+.close-modal {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    background: none !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    opacity: 0.8 !important;
+}
+.close-modal:hover {
+    opacity: 1 !important;
+}
+</style>
+
+    <div id="brochureModal" class="brochure-modal-overlay">
+    <div class="brochure-modal">
+        <button class="close-modal" onclick="closeBrochureModal()">&times;</button>
+        <h3>Download Brochure</h3>
+        <p>Please enter your details to download the brochure.</p>
+        <form id="brochureForm" onsubmit="handleBrochureDownload(event)">
+            <input type="text" id="brochureName" placeholder="Your Name" required>
+            <input type="email" id="brochureEmail" placeholder="Your Email" required>
+            <button type="submit" class="btn-magnetic btn-accent" style="width: 100%; margin-top: 15px;">Download</button>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </body>
 </html>

@@ -855,5 +855,121 @@ h1, h2, h3, h4, h5, h6 {
 .client-logo:hover img {
     transform: scale(1.05);
 }
-. f - c o n t a c t - i n f o   a ,   a [ h r e f ^ = " t e l " ]   {   c o l o r :   i n h e r i t   ! i m p o r t a n t ;   t e x t - d e c o r a t i o n :   n o n e   ! i m p o r t a n t ;   }  
+. f - c o n t a c t - i n f o   a ,   a [ h r e f ^ = " t e l " ]   {   c o l o r :   i n h e r i t   ! i m p o r t a n t ;   t e x t - d e c o r a t i o n :   n o n e   ! i m p o r t a n t ;   } 
  
+ 
+
+/* Brochure Modal Styles */
+.brochure-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.brochure-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.brochure-modal {
+    background: #F97316;
+    border: none;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 40px rgba(249, 115, 22, 0.4);
+}
+
+.brochure-modal-overlay.active .brochure-modal {
+    transform: translateY(0);
+}
+
+.brochure-modal h3 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.brochure-modal p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.brochure-modal input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    background: #ffffff;
+    border: none;
+    border-radius: 8px;
+    color: #111111;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.brochure-modal input:focus {
+    outline: 2px solid #111111;
+}
+
+.brochure-modal button[type="submit"] {
+    background: #111111 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.brochure-modal button[type="submit"]:hover {
+    background: #333333 !important;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.8;
+}
+
+.close-modal:hover {
+    opacity: 1;
+}
+
+/* Mobile Brochure Button in Nav */
+.mobile-brochure-btn {
+    display: none !important;
+}
+
+@media (max-width: 992px) {
+    .premium-nav .nav-links > a.mobile-brochure-btn {
+        display: block !important;
+        background-color: #F97316 !important;
+        color: #ffffff !important;
+        font-weight: 800 !important;
+        text-align: center !important;
+        border-radius: 8px !important;
+        margin: 10px 20px !important;
+        padding: 15px !important;
+        box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3) !important;
+    }
+}

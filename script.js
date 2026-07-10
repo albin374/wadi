@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.hero-slide');
     if (slides.length > 0) {
         let currentSlide = 0;
-        
+
         setInterval(() => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
@@ -50,3 +50,138 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+// Brochure Modal Logic
+function openBrochureModal(e) {
+    if (e) e.preventDefault();
+    const modal = document.getElementById('brochureModal');
+    if (modal) {
+        modal.classList.add('active');
+        modal.style.opacity = '1';
+        modal.style.visibility = 'visible';
+        modal.style.zIndex = '999999';
+    }
+}
+
+function closeBrochureModal() {
+    const modal = document.getElementById('brochureModal');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.style.opacity = '0';
+        modal.style.visibility = 'hidden';
+    }
+}
+
+function handleBrochureDownload(e) {
+    e.preventDefault();
+    const name = document.getElementById('brochureName').value;
+    const email = document.getElementById('brochureEmail').value;
+    const btn = e.target.querySelector('button[type="submit"]');
+
+    if (name && email) {
+        const originalText = btn.innerText;
+        btn.innerText = 'Sending...';
+        btn.disabled = true;
+
+        // Initialize EmailJS with your Public Key
+        emailjs.init("18Zg9bhfs4wiSsBrP"); // Replace with your actual Public Key from EmailJS
+
+        // Prepare template parameters
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            to_email: 'wadialmanarsales@gmail.com',
+            message: 'Brochure Download Request'
+        };
+
+        // Send email using EmailJS
+        emailjs.send(
+            'service_dsoo5hj', // Replace with your EmailJS Service ID
+            'template_gje4pga', // Replace with your EmailJS Template ID
+            templateParams
+        ).then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+
+            // Trigger download
+            const link = document.createElement('a');
+            link.href = 'media/WADI AL MANAR - BROCHURE.pdf';
+            link.download = 'WADI AL MANAR - BROCHURE.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Close modal and reset form
+            closeBrochureModal();
+            e.target.reset();
+
+            // Show success alert
+            setTimeout(() => alert("Brochure download started and details sent successfully!"), 500);
+        }, function (error) {
+            console.log('FAILED...', error);
+            alert("Failed to send details. However, your download will start now.");
+
+            // Trigger download even if email fails
+            const link = document.createElement('a');
+            link.href = 'media/WADI AL MANAR - BROCHURE.pdf';
+            link.download = 'WADI AL MANAR - BROCHURE.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            closeBrochureModal();
+            e.target.reset();
+        }).finally(() => {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        });
+    }
+}
+
+// Contact Form Submit Logic
+function handleContactSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const phone = document.getElementById('contactPhone').value;
+    const service = document.getElementById('contactService').value;
+    const brief = document.getElementById('contactBrief').value;
+
+    const btn = document.getElementById('contactSubmitBtn');
+
+    if (name && email && phone && service && brief) {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+
+        // Initialize EmailJS with your Public Key
+        emailjs.init("18Zg9bhfs4wiSsBrP"); // Replace with your actual Public Key from EmailJS
+
+        // Prepare detailed template parameters for the new Contact Template
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            phone_number: phone,
+            service_category: service,
+            project_brief: brief,
+            to_email: 'wadialmanarsales@gmail.com'
+        };
+
+        // Send email using EmailJS
+        emailjs.send(
+            'service_dsoo5hj', // Your existing EmailJS Service ID
+            'template_po9uvbi', // Replace with your NEW EmailJS Template ID for the contact form
+            templateParams
+        ).then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert("Thank you! Your project inquiry has been sent successfully. Our team will reach out within 4 business hours.");
+            e.target.reset();
+        }, function (error) {
+            console.log('FAILED...', error);
+            alert("Failed to send your inquiry. Please try again or contact us directly at info@wadialmanar.com.");
+        }).finally(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
+    }
+}
