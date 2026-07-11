@@ -49,6 +49,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    // Project Filtering Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    if (filterButtons.length > 0 && projectCards.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button styling
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-white');
+                    b.classList.add('bg-white', 'text-secondary');
+                });
+                btn.classList.remove('bg-white', 'text-secondary');
+                btn.classList.add('bg-primary', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Trigger 'All Projects' filter on page load to ensure images render
+        const allProjectsBtn = document.querySelector('.filter-btn[data-filter="all"]');
+        if (allProjectsBtn) {
+            allProjectsBtn.click();
+        }
+    }
 });
 
 

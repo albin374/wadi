@@ -968,8 +968,9 @@ h1, h2, h3, h4, h5, h6 {
         font-weight: 800 !important;
         text-align: center !important;
         border-radius: 8px !important;
-        margin: 10px 20px !important;
-        padding: 15px !important;
+        margin: 15px 40px 15px 20px !important; /* Larger right margin to push it left, away from right border */
+        padding: 12px !important; /* Equal padding for length and breadth balance */
+        font-size: 0.95rem !important;
         box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3) !important;
     }
 }

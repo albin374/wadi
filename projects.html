@@ -128,7 +128,9 @@
     <!-- Navigation -->
     <header class="navbar premium-nav">
         <div class="logo">
-            <img src="media/WAM_LOGO_no_background.png" alt="Wadi Al Manar Logo" height="70">
+            <a href="index.html">
+                <img src="media/WAM_LOGO_no_background.png" alt="Wadi Al Manar Logo" height="70">
+            </a>
         </div>
         <nav class="nav-links">
             <a href="index.html">Home</a>
@@ -528,6 +530,19 @@
 </div>
 </div>
 </div>
+
+<!-- Flooring Project 3 -->
+<div data-category="flooring" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/tile_res.png')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">FLOOR & WALL TILING</div>
+<h3 class="text-white font-headline-md mb-2">High-End Residential Flooring</h3>
+<div class="flex justify-between items-center text-white/70 font-technical-mono">
+<span>Residential</span>
+<span>2024</span>
+</div>
+</div>
+</div>
 <!-- Gypsum Project 1 -->
 <div data-category="gypsum" class="project-card md:col-span-8 group relative rounded-[20px] overflow-hidden aspect-[16/9] md:aspect-[2/1] shadow-sm hover:shadow-xl transition-all duration-500">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/gyp_hero.png')"></div>
@@ -593,18 +608,6 @@
 </div>
 </div>
 
-<!-- Flooring Project 3 -->
-<div data-category="flooring" class="project-card md:col-span-4 group relative rounded-[20px] overflow-hidden aspect-[4/3] shadow-sm hover:shadow-xl transition-all duration-500">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('media/tile_res.png')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-<div class="bg-primary-container text-on-primary-container inline-block px-4 py-1 rounded-full font-label-caps text-[10px] w-fit mb-4">FLOOR & WALL TILING</div>
-<h3 class="text-white font-headline-md mb-2">High-End Residential Flooring</h3>
-<div class="flex justify-between items-center text-white/70 font-technical-mono">
-<span>Residential</span>
-<span>2024</span>
-</div>
-</div>
-</div>
 </div>
 
 
@@ -869,7 +872,7 @@
 
         // Simple Fade-in Observer
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0
         };
 
         const observer = new IntersectionObserver((entries) => {
